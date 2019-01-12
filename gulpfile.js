@@ -15,5 +15,5 @@ gulp.task('default', function (cb) {
     .pipe(babel())
     .pipe(gulp.dest('public/dist'));
 
-  // return cb();
+  return cb();
 });
