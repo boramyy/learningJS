@@ -57,7 +57,9 @@ gulp.task('default', function (cb) {
   return cb();
 });
 ```
-책에는 콜백함수 리턴 없는 콜백함수 였는데, gulp가 업데이트되면서 리턴이 필수인 것 같다. 아무튼 이렇게 작성하고 터미널에 gulp 명령을 내리면 아무 내용 없지만 일단 실행이 되는 것을 확인할 수 있다!
+>책에는 콜백함수 리턴 없는 콜백함수 였는데, gulp가 업데이트되면서 리턴이 필수인 것 같다!
+
+아무튼 이렇게 작성하고 터미널에 gulp 명령을 내리면 아무 내용 없지만 일단 실행이 되는 것을 확인할 수 있다.
 
 ``` shell
 $ gulp
@@ -145,3 +147,47 @@ gulp.task('default', function (cb) {
 ```
 
 브라우저 점유율이 0.25퍼센트 이상이고 죽어있지않은 브라우저들을 대상으로 컴파일 하겠다는 설정이다.
+
+## lint 프로그램 ESLint
+
+### eslint 설치
+eslint를 전역에 설치한다.
+``` shell
+$ npm i -g eslint
+```
+
+``` shell
+$ eslint --init
+```
+
+How would you like to configure ESLint?
+어떤방식으로 린트를 설정하겠냐고 물어보는데, 나는 많이 쓰이는 대중적인 가이드를 사용하기로 했다. Use a popular style guide!
+Which style guide do you want to follow?
+Airbnb (https://github.com/airbnb/javascript) !
+
+그러면 다음과 같은 내용의 `.eslintrc.js` 파일이 생셩된다.
+
+``` javascript
+module.exports = {
+  extends: 'airbnb'
+};
+```
+
+### gulp에 작성하여 자동화하기
+
+``` shell
+$ npm i --save-dev gulp-eslint
+```
+
+그리고 `gulpfile.js`에 바벨이 트랜스컴파일 하기 전에 다음 내용을 추가한다.
+
+``` javascript
+gulp.src(['es6/**/*.js', 'public/es6/**/*.js'])
+  .pipe(eslint())
+  .pipe(eslint.format());
+```
+
+걸프를 돌리면 eslint의 피드백을 받을 수 있다.
+``` shell
+$ gulp
+```
