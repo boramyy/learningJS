@@ -13,11 +13,8 @@ import axios from "axios";
 
 const Index = props => (
   <Layout>
-    <Head>
-      <title>Index 페이지</title>
-    </Head>
-    <h1>shows~</h1>
-    <ul>
+    <h1 className="hide">준호와 한나 결혼합니다.</h1>
+    {/* <ul>
       {props.shows.map(({ show }) => (
         <li key={show.id}>
           <Link prefetch as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
@@ -25,30 +22,8 @@ const Index = props => (
           </Link>
         </li>
       ))}
-    </ul>
-    <style jsx>{`
-      h1, a {
-        font-family: "Arial";
-      }
-
-      ul {
-        padding: 0;
-      }
-
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: blue;
-      }
-
-      a:hover {
-        opacity: 0.6;
-      }
-    `}</style>
+    </ul> */}
+    <style jsx>{``}</style>
   </Layout>
 );
 
