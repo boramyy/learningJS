@@ -23,7 +23,6 @@ const Index = props => (
         </li>
       ))}
     </ul> */}
-    <style jsx>{``}</style>
   </Layout>
 );
 
